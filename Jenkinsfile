@@ -34,7 +34,4 @@ pipeline {
     failure {
         echo "angular build fail"
     }
-
-}
-
-}
+{
