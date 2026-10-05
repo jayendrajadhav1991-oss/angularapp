@@ -17,7 +17,7 @@ pipeline {
         }
         stage("testing") {
             steps{
-                bat "npx ng test --no-watch --no-progress --browser=CroHeadless"
+                bat "npx ng test --no-watch --no-progress --browser=ChromeHeadless"
             }
         }
         stage("Build") {
