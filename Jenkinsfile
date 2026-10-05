@@ -22,7 +22,7 @@ pipeline {
         }
         stage("Build") {
             steps {
-                bat "npx ng build --configuration production"
+                // bat "npx ng build --configuration production"
             }
         }
 
