@@ -18,6 +18,7 @@ pipeline {
         stage("testing") {
             steps{
                 echo "testing"
+            }
         }
         stage("Build") {
             steps {
@@ -28,13 +29,12 @@ pipeline {
     }
     post {
         success {
-        echo "angular application succesfully"
-        
-    } 
-    failure {
-        echo "angular build fail"
+            echo "angular application succesfully"
+        } 
+        failure {
+            echo "angular build fail"
        }
-      } 
-    }
+    } 
+    
 }
 
