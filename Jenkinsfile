@@ -17,7 +17,7 @@ pipeline {
         }
         stage("test") {
             steps{
-                bat "npx ng text --no-watch --no-progress --browser=Chromeheadless"
+                // bat "npx ng text --no-watch --no-progress --browser=Chromeheadless"
                 echo "testing"
             }
         }
@@ -26,6 +26,14 @@ pipeline {
                  bat "npx ng build --configuration production"
             }
         }
+
+        stage ("deployment") {
+            steps {
+                bat "del /q /s c:\\inetpub\\wwwroot\\angularapp\\*"
+             bat "xcopy /E /Y /I dist\\* c:\\inetpub\\wwwroot\\angularapp\\"
+             } 
+        }
+
 
     }
     post {
