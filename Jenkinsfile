@@ -9,27 +9,28 @@ pipeline {
                     checkout scm
             }
         }
-        stage("install package") {
+        stage("install packages") {
             steps {
                 bat "npm ci"
             } 
 
         }
-        stage("testing") {
+        stage("test") {
             steps{
+                bat "npx ng text --no-watch --no-progress --browser=Chromeheadless"
                 echo "testing"
             }
         }
         stage("Build") {
             steps {
-                // bat "npx ng build --configuration production"
+                 bat "npx ng build --configuration production"
             }
         }
 
     }
     post {
         success {
-            echo "angular application succesfully"
+            echo "Angular application build succesfully"
         } 
         failure {
             echo "angular build fail"
